@@ -7,7 +7,7 @@ export default {
 
   data() {
     return {
-      text : 'World'
+      text : 'World Vuedqaadadda'
     }
   }
   

@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development';
 
 const config = {
+  target: 'web',
   entry : path.join(__dirname, './src/index.js'),
   output : {
     filename : 'bundle.js',
@@ -59,12 +60,21 @@ const config = {
   ]
 }
 
-isDev && (config.devServer = {
-  port : '9527',
-  host : '0.0.0.0',
-  overlay : {
-    errors : true
-  }
-})
+isDev && (
+  config.devtool = '#cheap-module-eval-source-map',
+  config.devServer = {
+    port : '9537',
+    host : '0.0.0.0',
+    overlay : {
+      errors : true
+    },
+    open : true,
+    hot : true,
+},
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  )
+)
 
 module.exports = config;
