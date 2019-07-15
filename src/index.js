@@ -6,6 +6,11 @@
 import Vue from 'vue';
 import App from './app.vue';
 
+// test
+import './styles/test.css';
+import './assets/test.png';
+import './styles/test-stylus.styl';
+
 //  创建html节点
 const root = document.createElement('div');
 document.body.appendChild(root);
