@@ -1,21 +1,31 @@
 <template>
-  <div id="test"> Hello {{text}} </div>  
+  <div class="main">
+    <Header></Header>
+    <todo></todo>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
-export default {
+import Header from './app/Header.vue';
+import Footer from './app/Footer.jsx';
+import Todo from './app/Todo.vue';
 
+export default {
   data() {
     return {
-      text : 'World Vuedqaadadda'
+      
     }
+  },
+  components: {
+    Header,
+    Footer,
+    Todo,
   }
   
 }
 </script>
 
-<style>
-#test{
-  background-color: darkcyan;
-}
+<style lang="stylus">
+  // @import url('../styles/global.styl');
 </style>
