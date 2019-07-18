@@ -7,7 +7,10 @@
       placeholder="type your todo"
       @keyup.enter="addTodo"
     >
-    <Item></Item>
+    <Item 
+      v-for=" todo of todoList"
+      :todo="todo"
+    />
   </section>
 </template>
 
@@ -15,8 +18,26 @@
 import Item from './Item.vue';
 
 export default {
+  data() {
+    return {
+      todoList: [
+        {
+          completed: true,
+          content: '吃饭'
+        },
+        {
+          completed: false,
+          content: '睡觉'
+        },
+        {
+          completed: false,
+          content: '打豆豆'
+        }
+      ]
+    }
+  },
   methods: {
-    addTodo () {
+    addTodo() {
 
     }
   },
