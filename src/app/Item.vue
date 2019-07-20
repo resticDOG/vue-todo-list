@@ -31,11 +31,11 @@ export default {
   display flex
   justify-content space-between
   align-items center
-  border-top 1px solid #ccc
+  border-top 1px dashed #eee
   width 100%
   &:hover {
     .destory:after {
-      content 'X'
+      content 'x'
     }
   }
   &.completed {
@@ -54,10 +54,10 @@ export default {
     appearance none
     margin 0
     &:after {
-      content url('../assets/checked.svg')
+      content url('../assets/unchecked.svg')
     }
     &:checked:after {
-      content url('../assets/unchecked.svg')
+      content url('../assets/checked.svg')
     }
   }
   .todo-content {

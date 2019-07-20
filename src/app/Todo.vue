@@ -9,13 +9,16 @@
     >
     <Item 
       v-for=" todo of todoList"
+      :key="todo.content"
       :todo="todo"
     />
+    <Tabs :filter="filter"></Tabs>
   </section>
 </template>
 
 <script>
 import Item from './Item.vue';
+import Tabs from './Tabs.vue';
 
 export default {
   data() {
@@ -33,7 +36,8 @@ export default {
           completed: false,
           content: '打豆豆'
         }
-      ]
+      ],
+      filter: 'all'
     }
   },
   methods: {
@@ -43,6 +47,7 @@ export default {
   },
   components: {
     Item,
+    Tabs,
   }
 }
 </script>
