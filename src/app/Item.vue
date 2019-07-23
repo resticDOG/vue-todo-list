@@ -6,7 +6,7 @@
       v-model="todo.completed"
     >
     <label class="todo-content">{{ todo.content }}</label>
-    <button class="destory" @click="destoryTodo"></button>
+    <button class="destory" @click="destoryTodo(todo.id)"></button>
   </div>  
 </template>
 
@@ -19,8 +19,9 @@ export default {
     }
   },
   methods: {
-    destoryTodo() {
-
+    destoryTodo(id) {
+      // 通知父组件事件触发了
+      this.$emit('delete', id);
     }
   }
 }

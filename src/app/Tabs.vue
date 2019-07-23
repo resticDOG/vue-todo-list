@@ -1,6 +1,8 @@
 <template>
   <div class="tabs">
-    <span class="number">2 items left</span>
+    <span class="number">
+      <span>{{ activeItemsCount }}</span> items left
+    </span>
     <span class="filters">
       <span 
         v-for="state of states"
@@ -18,8 +20,15 @@
 <script>
 export default {
   props: {
+    /**
+     * 当前处于点击状态filter按钮的值
+     */
     filter: {
       type: String,
+      required: true
+    },
+    todoList: {
+      type: Array,
       required: true
     }
   },
@@ -28,19 +37,27 @@ export default {
       states: ['all', 'active', 'completed']
     }
   },
+  /**
+   * 计算属性
+   */
+  computed: {
+    activeItemsCount() {
+      return this.todoList.filter(todo => !todo.completed).length;
+    }
+  },
   methods: {
     /**
      * 触发筛选
      */
     toggleFilter(state) {
-
+      this.$emit('toggle', state);
     },
 
     /**
      * 清除所有已办
      */
     clearCompleted() {
-
+      this.$emit('clearCompleted');
     }
   }
 }
@@ -57,9 +74,21 @@ export default {
   border-top 1px solid #ccc
   .number
     padding-left 10px
+    span
+      color #FF6600
   .item
-    padding 0 5px
+    margin-right 5px
+    cursor pointer
+    padding 10px 4px 10px 10px
+    border 1px solid #ddd
+    border-radius 3px
+    &.checked
+      color #fff7f7
+      background-color #08ffc8
   .clear
-    padding-right 10px
+    padding 0 5px
+    color #fff
+    background-color #204969
+    border 1px solid #eee
     cursor pointer
 </style>
