@@ -13,7 +13,9 @@
         {{ state }}
       </span>
     </span>
-    <span class="clear" @click="clearCompleted">clear completed</span>
+    <span>
+        <span class="clear" @click="clearCompleted">clear completed</span>
+    </span>
   </div>
 </template>
 
@@ -86,9 +88,12 @@ export default {
       color #fff7f7
       background-color #08ffc8
   .clear
-    padding 0 5px
+    margin-right 5px 
+    padding 10px 10px
+    border-radius 3px
     color #fff
     background-color #204969
+    box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.12)
     border 1px solid #eee
     cursor pointer
 </style>
